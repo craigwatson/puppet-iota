@@ -1,6 +1,6 @@
 {
   "name"                    : "CraigWatson1987-iota",
-  "version"                 : "1.0.0-rc",
+  "version"                 : "1.0.0",
   "author"                  : "Craig Watson",
   "summary"                 : "Installs and configures a headless IOTA cryptocurrency node.",
   "license"                 : "Apache-2.0",
