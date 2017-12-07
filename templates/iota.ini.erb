@@ -1,0 +1,33 @@
+############################################
+# WARNING:
+# Managed by puppet - DO NOT modify locally.
+############################################
+
+[IRI]
+HEADLESS = true
+NEIGHBORS = <%= scope['::iota::all_neighbors'] %>
+PORT = <%= scope['::iota::api_port'] %>
+API_HOST = <%= scope['::iota::api_host'] %>
+TESTNET = <%= scope['::iota::testnet'] %>
+RESCAN_DB = <%= scope['::iota::rescan_db'] %>
+DEBUG = <%= scope['::iota::debug'] %>
+IXI_DIR = <%= scope['::iota::ixi_dir'] %>
+DB_PATH = <%= scope['::iota::db_path'] %>
+<% if scope['::iota::send_limit'] -%>
+SEND_LIMIT = "<%= scope['::iota::send_limit'] %>"
+<% end -%>
+<% if scope['::iota::all_remote_limit_api'] != '' -%>
+REMOTE_LIMIT_API = "<%= scope['::iota::all_remote_limit_api'] %>"
+<% end -%>
+<% if scope['::iota::udp_port'] -%>
+UDP_RECEIVER_PORT = <%= scope['::iota::udp_port'] %>
+<% end -%>
+<% if scope['::iota::tcp_port'] -%>
+TCP_RECEIVER_PORT = <%= scope['::iota::tcp_port'] %>
+<% end -%>
+<% if scope['::iota::db_path'] -%>
+DB_PATH = <%= scope['::iota::db_path'] %>
+<% end -%>
+<% if scope['::iota::udp_port'] -%>
+UDP_RECEIVER_PORT = <%= scope['::iota::udp_port'] %>
+<% end -%>

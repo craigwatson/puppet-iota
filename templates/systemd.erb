@@ -1,0 +1,24 @@
+############################################
+# WARNING:
+# Managed by puppet - DO NOT modify locally.
+############################################
+
+[Unit]
+Description=IOTA full node daemon
+After=network.target
+
+[Service]
+Type=simple
+User=<%= scope['::iota::user_name'] %>
+WorkingDirectory=<%= scope['::iota::user_home'] %>/node
+ExecStart=/usr/bin/java -Xms<%= scope['::iota::java_ram_mb'] %>m -Xmx<%= scope['::iota::java_ram_mb'] %>m <% if scope['::iota::java_opts'] %><%= scope['::iota::java_opts'] %> <% end -%>-jar <%= scope['::iota::user_home'] %>/node/iri-<%= scope['::iota::version'] %>.jar -c <%= scope['::iota::user_home'] %>/node/iota.ini
+PrivateDevices=yes
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=mixed
+KillSignal=SIGTERM
+Restart=on-failure
+RestartSec=30
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
